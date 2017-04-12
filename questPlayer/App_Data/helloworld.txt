@@ -1,0 +1,30 @@
+﻿Super quest***2
+
+???1***Hello Stranger, Do you think Liosha doing nothing at all?
+Yes***You are right***2
+No***Think again!***1
+Poslat leshu z pivom!***O, kruto!***3
+
+???2***How can he start his career?
+Vjobiwat***You are right again***0
+Prodoljat proebivatsa***Tak i poluchitsa :(***-1
+Nihua ne ponial***davay escho raz***1
+
+???3***Kakoe vziat?
+Svetloe***Zria***-1
+Temnoe***Ok, a chto s rabotoy?***2
+
+*END*
+
+*Win*Lioshina kariera poshla vverh
+*Lose*Lioshia spilsa, prodal kvartiry i stal bomjevat
+
+
+-legend:
+
+1 line - Quest name and id after ***
+??? - start of question then question guid, after *** - question body, next lines before next ??? answers with reply, result and redirect guid
+0id - win
+-1id - lose
+
+

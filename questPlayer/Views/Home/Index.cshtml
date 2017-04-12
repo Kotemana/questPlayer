@@ -1,0 +1,20 @@
+﻿@model List<questPlayer.App_Start.FileModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name,"Question","Quest",new {questId=item.Id, questionId=1, startNew=true}, null)
+        </td>
+    </tr>
+}
+
+</table>
