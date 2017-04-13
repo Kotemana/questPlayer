@@ -72,6 +72,12 @@ namespace questPlayer.Controllers
                     var lineSplit = line.Replace("???", "").Split(new[] {"***"}, StringSplitOptions.None);
                     questPage.QuestionId = int.Parse(lineSplit[0]);
                     questPage.Question = lineSplit[1];
+                    if (lineSplit.Length > 2)
+                    {
+                        questPage.Image = lineSplit[2];
+                    }
+
+
 
                 }
                 else if(isReadingQuestions && questPage.QuestionId != 0 && !string.IsNullOrEmpty(line))

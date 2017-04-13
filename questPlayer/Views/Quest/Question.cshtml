@@ -58,11 +58,13 @@
 <h2>@Html.DisplayFor(model => model.Question)</h2>
 
 <div>
+    <img src="~/Content/Pictures/111.jpg" />
     <h4>What will you say?</h4>
+
 
     @foreach (var answer in Model.Answers)
     {
-        @Html.ActionLink(answer.AnswerText, "Question", "Quest", new { questId = Model.QuestId, questionId = answer.RedirectId, startNew = true }, new {@class="answer-link",data_result=answer.AnswerResult})
+        @Html.ActionLink(answer.AnswerText, "Question", "Quest", new {questId = Model.QuestId, questionId = answer.RedirectId, startNew = true}, new {@class = "answer-link", data_result = answer.AnswerResult})
     }
 </div>
 <script>

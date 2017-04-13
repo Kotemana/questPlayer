@@ -22,7 +22,7 @@ namespace questPlayer.App_Start
         public static void FillQuests()
         {
             Quests = new List<FileModel>();
-            string path = HostingEnvironment.MapPath("~/App_Data");
+            string path = HostingEnvironment.MapPath("~/App_Data/Quests");
             if (Directory.Exists(path))
             {
                 var files = Directory.GetFiles(path);
