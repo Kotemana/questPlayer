@@ -76,6 +76,10 @@ namespace questPlayer.Controllers
                     {
                         questPage.Image = lineSplit[2];
                     }
+                    if (lineSplit.Length > 3)
+                    {
+                        questPage.Sound = lineSplit[3];
+                    }
 
 
 

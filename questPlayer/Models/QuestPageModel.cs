@@ -16,6 +16,7 @@ namespace questPlayer.Models
         public string Question { get; set; }
         public List<Answer> Answers { get; set; }
         public string Image { get; set; }
+        public string Sound { get; set; }
     }
     public class Answer
     {

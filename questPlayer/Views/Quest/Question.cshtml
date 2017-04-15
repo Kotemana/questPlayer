@@ -57,8 +57,18 @@
 </style>
 <h2>@Html.DisplayFor(model => model.Question)</h2>
 
+@if (!String.IsNullOrEmpty(Model.Sound))
+{
+    <audio controls="controls">
+        <source src="~/Content/Music/@Model.QuestId/@Model.Sound" type="audio/mp3" />
+    </audio>
+}
 <div>
-    <img src="~/Content/Pictures/111.jpg" />
+    
+    @if (!String.IsNullOrEmpty(Model.Image))
+    {
+        <img src="~/Content/Pictures/@Model.QuestId/@Model.Image"/>
+    }
     <h4>What will you say?</h4>
 
 
@@ -68,7 +78,18 @@
     }
 </div>
 <script>
-    $(".answer-link").click(function (){
+    $(".answer-link").click(function() {
         alert($(this).data("result"));
-    })
+    });
+    localStorage.setItem("questId", "@Model.QuestId");
+    localStorage.setItem("questionId", "@Model.QuestionId");
+    @*var myData = {
+        quest: '@Model.QuestId',
+        question: '@Model.QuestionId'
+    }
+    localStorage.setItem('localStorageSaveData', 'myData');*@
+
+
 </script>
+
+
