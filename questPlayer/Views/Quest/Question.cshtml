@@ -81,13 +81,16 @@
     $(".answer-link").click(function() {
         alert($(this).data("result"));
     });
-    localStorage.setItem("questId", "@Model.QuestId");
-    localStorage.setItem("questionId", "@Model.QuestionId");
-    @*var myData = {
-        quest: '@Model.QuestId',
-        question: '@Model.QuestionId'
+    @*localStorage.setItem("questId", "@Model.QuestId");
+    localStorage.setItem("questionId", "@Model.QuestionId");*@
+    var myData = {
+        questId: '@Model.QuestId',
+        questionId: '@Model.QuestionId'
     }
-    localStorage.setItem('localStorageSaveData', 'myData');*@
+    localStorage.setItem('myData', JSON.stringify(myData));
+    //var retrieveMyData = localStorage.getItem('myData');
+    //var data = JSON.parse(retrieveMyData);
+    //console.log('retrieveMyData: ', JSON.parse(retrieveMyData));
 
 
 </script>
