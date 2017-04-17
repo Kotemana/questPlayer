@@ -1,4 +1,5 @@
-﻿@model List<questPlayer.App_Start.FileModel>
+﻿@using System.Web.Script.Services
+@model List<questPlayer.App_Start.FileModel>
 
 @{
     ViewBag.Title = "Index";
@@ -21,16 +22,6 @@
 
 </table>
 <div id="Continue"></div>
-<script>
-    $(document).ready(function () {
-        console.log("document loaded");
-    });
-    var retrieveMyData = localStorage.getItem('myData');
-    var data = JSON.parse(retrieveMyData);
-    var url = "/Quest/Question?questId=" + data.questId + "&questionId=" + data.questionId + "&startNew=True";
-    if (data.questId || data.questId != null) {
-        var tag = "<a href='" + url + "'> Continue </a>";
-        document.getElementById("Continue").innerHTML = tag;
-    }
-</script>
+<script src="@Url.Content("~/Content/Load.js")" type="text/javascript"></script>
+
 
