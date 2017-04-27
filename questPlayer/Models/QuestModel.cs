@@ -15,5 +15,8 @@ namespace questPlayer.Models
         public int QuestId { get; set; }
         public string WinText { get; set; }
         public string LoseText { get; set; }
+        public int HP { get; set; }
+        public int Mana { get; set; }
+        public int SuperMana { get; set; }
     }
 }

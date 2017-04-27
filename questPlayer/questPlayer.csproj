@@ -134,7 +134,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\QuestModel.cs" />
-    <Compile Include="Models\QuestPageModel.cs" />
+    <Compile Include="Views\QuestPageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

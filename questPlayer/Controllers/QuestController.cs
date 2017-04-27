@@ -11,8 +11,9 @@ namespace questPlayer.Controllers
     public class QuestController : Controller
     {
         // GET: Quest
-        public ActionResult Question(int questId,int questionId, bool startNew=false)
+        public ActionResult Question(int questId,int questionId, bool startNew = false, int hitPoint=0, int mana=0, int superMana=0)
         {
+            
             var quest = Session["quest"] as QuestModel;
             if (startNew||quest==null||quest.QuestId!=questId)
             {
@@ -28,12 +29,22 @@ namespace questPlayer.Controllers
             {
                 model = quest.QuestPages.FirstOrDefault(x => x.QuestionId == 1); //redirect to 1 question if not found
             }
+            quest.HP += hitPoint;
+            quest.Mana += mana;
+            quest.SuperMana += superMana;
+            if (quest.HP<0)
+            {
+                var finalMessage = "You DEAD!!!!!!!!Try again.";
+                return RedirectToAction("WinOrLose", new { message = finalMessage });
+            }
+            Session["quest"] = quest;
             model.QuestId = questId;
             return View(model);
         }
 
         private QuestModel CreateQuestAndStoreInSession(int questId)
         {
+            
             var questFile = FileList.Quests.FirstOrDefault(x => x.Id == questId);
             var quest=new QuestModel();
             quest.QuestId = questId;
@@ -61,6 +72,18 @@ namespace questPlayer.Controllers
                 else if (line.StartsWith("*Lose*"))
                 {
                     quest.LoseText = line.Replace("*Lose*", "");
+                }
+                else if(line.StartsWith("*Start HP*"))
+                {
+                    quest.HP = int.Parse(line.Replace("*Start HP*", ""));
+                }
+                else if (line.StartsWith("*Start Mana*"))
+                {
+                    quest.Mana = int.Parse(line.Replace("*Start Mana*", ""));
+                }
+                else if (line.StartsWith("*Start SuperMana*"))
+                {
+                    quest.SuperMana = int.Parse(line.Replace("*Start SuperMana*", ""));
                 }
                 else if (isReadingQuestions && line.StartsWith("???")) //quest line, change question
                 {
@@ -91,8 +114,14 @@ namespace questPlayer.Controllers
                     {
                         AnswerText = lineSplit[0],
                         AnswerResult = lineSplit[1],
-                        RedirectId = int.Parse(lineSplit[2])
+                        RedirectId = int.Parse(lineSplit[2]),
+                        HitPoint = int.Parse(lineSplit[3]),
+                        Mana = int.Parse(lineSplit[4]),
+                        SuperMana = int.Parse(lineSplit[5]),
+                        
+
                     });
+                    
                 }
 
             }

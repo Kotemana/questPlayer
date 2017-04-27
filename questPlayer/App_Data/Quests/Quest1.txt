@@ -1,15 +1,22 @@
 ﻿Aliosha Saga***1
 
 ???1***Hello Stranger, Do you think Liosha doing nothing?***111.jpg
-Yes***You are right***2
-No***Think again!***1
+Yes***You are right***2***-2***2***1
+No***Think again!***1***-2***4***1
 
 ???2***How can he start his career?******1.mp3***2.jpg
-Vjobiwat***You are right again***0
-Prodoljat proebivatsa***Tak i poluchitsa :(***-1
-Nihua ne ponial***davay escho raz***1
+Vjobiwat***You are right again***0***-2***2***1
+Prodoljat proebivatsa***Tak i poluchitsa :(***-1***-2***-2***-5
+Nihua ne ponial***davay escho raz***1***-2***2***1
 
 *END*
+
+*Start HP*10
+
+*Start Mana*5
+
+*Start SuperMana*2
+
 
 *Win*Lioshina kariera poshla vverh
 *Lose*Lioshia spilsa, prodal kvartiry i stal bomjevat

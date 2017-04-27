@@ -1,5 +1,6 @@
-﻿$(".answer-link").click(function () {
+﻿$(".answer-link").click(function (e) {
     alert($(this).data("result"));
+    e.preventDefault();
 });
 
 var container = $("#viewDataContainer");

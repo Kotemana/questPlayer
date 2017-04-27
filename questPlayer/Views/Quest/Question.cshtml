@@ -1,4 +1,5 @@
-﻿@model questPlayer.Models.QuestPageModel
+﻿@using questPlayer.Models
+@model questPlayer.Models.QuestPageModel
 
 @{
     ViewBag.Title = "Question";
@@ -13,6 +14,16 @@
     </audio>
 }
 <div>
+    @foreach (var answer in Model.Answers)
+    {
+        <tr>
+            <td>HP: </td>
+            <td>Mana:@answer.Mana </td>
+            <td>SuperMana:@answer.SuperMana </td>
+        </tr>
+    }
+
+   
 
     @if (!String.IsNullOrEmpty(Model.Image))
     {
@@ -23,7 +34,8 @@
 
     @foreach (var answer in Model.Answers)
     {
-        @Html.ActionLink(answer.AnswerText, "Question", "Quest", new {questId = Model.QuestId, questionId = answer.RedirectId, startNew = true}, new {@class = "answer-link", data_result = answer.AnswerResult})
+        //todo check enough resources;
+        @Html.ActionLink(answer.AnswerText, "Question", "Quest", new {questId = Model.QuestId, questionId = answer.RedirectId, startNew = true, hitPoint = answer.HitPoint, mana = answer.Mana, superMana = answer.SuperMana}, new {@class = "answer-link", data_result = answer.AnswerResult})
     }
 </div>
  <div id="viewDataContainer" data-questId="@Model.QuestId" data-questionId="@Model.QuestionId"></div>
