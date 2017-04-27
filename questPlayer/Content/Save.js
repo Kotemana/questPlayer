@@ -1,6 +1,6 @@
 ﻿$(".answer-link").click(function (e) {
     alert($(this).data("result"));
-    e.preventDefault();
+    //e.preventDefault();
 });
 
 var container = $("#viewDataContainer");

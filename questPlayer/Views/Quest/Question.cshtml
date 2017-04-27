@@ -35,7 +35,7 @@
     @foreach (var answer in Model.Answers)
     {
         //todo check enough resources;
-        @Html.ActionLink(answer.AnswerText, "Question", "Quest", new {questId = Model.QuestId, questionId = answer.RedirectId, startNew = true, hitPoint = answer.HitPoint, mana = answer.Mana, superMana = answer.SuperMana}, new {@class = "answer-link", data_result = answer.AnswerResult})
+        @Html.ActionLink(answer.AnswerText, "Question", "Quest", new {questId = Model.QuestId, questionId = answer.RedirectId, hitPoint = answer.HitPoint, mana = answer.Mana, superMana = answer.SuperMana}, new {@class = "answer-link", data_result = answer.AnswerResult})
     }
 </div>
  <div id="viewDataContainer" data-questId="@Model.QuestId" data-questionId="@Model.QuestionId"></div>
